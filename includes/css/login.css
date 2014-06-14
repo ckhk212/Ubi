@@ -1,7 +1,8 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-image: url(http://uploads.striking.ly/page/images/backgrounds/bg6.jpg);  
+  /*background-image: url('../img/signin-bg.png');  */
+  background-color: black;
 }
 
 .form-signin {
@@ -42,6 +43,6 @@ body {
   color: #FFFFFF;
 }
 a.white-font:hover{
-  color: #212c37;
+  color: #B3B3B3;
   text-decoration: none;
 }
