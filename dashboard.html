@@ -15,39 +15,16 @@
 	<link rel="stylesheet" href="includes/css/chui-android-3.5.5.min.css">
 	<!-- Font Awesome CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<!-- Custom CSS -->
 	<style type="text/css">
+		.tabbar  > a.button{
+			opacity: 0.5;
+		}
 		.tabbar > .button > .icon {
 			display: none;
 		}
 		.popover{
 			display: block;
-		}
-		p.speech
-		{
-			position: relative;
-			width: 200px;
-			/*height: 100px;*/
-			text-align: center;
-			line-height: 100px;
-			background-color: #fff;
-			border: 8px solid #666;
-			-webkit-border-radius: 30px;
-			-moz-border-radius: 30px;
-			border-radius: 30px;
-			-webkit-box-shadow: 2px 2px 4px #888;
-			-moz-box-shadow: 2px 2px 4px #888;
-			box-shadow: 2px 2px 4px #888;
-		}
-		p.speech:before
-		{
-			content: ' ';
-			position: absolute;
-			width: 0;
-			height: 0;
-			left: 30px;
-			top: 100px;
-			border: 25px solid;
-			border-color: #666 transparent transparent #666;
 		}
 		i.add-icon{
 			margin-left: 0.1em;
@@ -55,6 +32,18 @@
 		}
 		.transparent{
 			opacity: 0.5;
+		}
+		nav a{
+			color: #333;
+		}
+		/* For slide in menu */
+		#jPanelMenu-menu{
+			left: auto;
+			top: 0 !important;
+			padding-top: 0px !important;
+		}
+		.ubi-logo-small{
+			margin-right: 0.5em;
 		}
 	</style>	
 
@@ -64,15 +53,19 @@
 	<script src="includes/js/chui-3.5.5.min.js"></script>
 	<!-- Chart JS -->
 	<script src="includes/js/Chart.min.js"></script>
+	<!-- jpanelmenu JS -->
+	<script src="includes/js/jpanelmenu.min.js"></script>
 </head>
 <!-- body -->
 <body>
 	<!-- Devices page -->
-	<nav class="current">
+	<nav>
 		<i class="fa fa-laptop fa-2x"></i>
 		<h1>Devices</h1>
 		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
 	</nav>
+
 	<article id="main" class="current">
 		<section>
 			<ul class='list'>
@@ -83,7 +76,7 @@
 					<div>
 						<h3>Living room Ubi</h3>
 						<h4>The Ubiquitous Computer</h4>
-						<p>The Ubi plugs into a power outlet and connects through your home's WiFi network to the Internet..</p>
+						<!-- <p>The Ubi plugs into a power outlet and connects through your home's WiFi network to the Internet..</p> -->
 					</div>
 					<aside>
 						<span class='show-detail'></span>
@@ -96,7 +89,7 @@
 					<div>
 						<h3>Lving room Smart Things</h3>
 						<h4>Easy & Affordable Smart Home Automation</h4>
-						<p>SmartThings is the easiest way to create a smart home</p>
+						<!-- <p>SmartThings is the easiest way to create a smart home</p> -->
 					</div>
 					<aside>
 						<span class='show-detail'></span>
@@ -124,6 +117,8 @@
 	<nav class='next'>
 		<i class="fa fa-magic fa-2x"></i>
 		<h1>Triggers</h1>
+		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
 	</nav>
 	<article class='next'>
 		<section>
@@ -142,6 +137,8 @@
 	<nav class='next'>
 		<i class="fa fa-microphone fa-2x"></i>
 		<h1>Speak</h1>
+		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
 	</nav>
 	<article class='next'>
 		<section>
@@ -149,192 +146,12 @@
 	</article>
 	<!-- End Speak page -->
 
-	<!-- More page -->
-	<nav class='next'>
-		<i class="fa fa-bars fa-2x"></i>
-		<h1>More</h1>
-	</nav>
-	<article id='article5' class='next'>
-		<section>
-			<h2>Fruits</h2>
-			<ul class='list'>
-				<li class='comp' class="nav" data-goto="apples">
-					<div>
-						<h3>Apples</h3>
-					</div>
-					<aside>
-						<span class="nav"></span>
-					</aside>
-				</li>
-				<li class='comp' class="nav" data-goto="oranges">
-					<div>
-						<h3>Oranges</h3>
-					</div>
-					<aside>
-						<span class="nav"></span>
-					</aside>
-				</li>
-				<li class='comp' class="nav" data-goto="bananas">
-					<div>
-						<h3>Bananas</h3>
-					</div>
-					<aside>
-						<span class="nav"></span>
-					</aside>
-				</li>
-				<li class='comp' class="nav" data-goto="peaches">
-					<div>
-						<h3>Peaches</h3>
-					</div>
-					<aside>
-						<span class="nav"></span>
-					</aside>
-				</li>
-				<li class='comp' class="nav" data-goto="strawberries">
-					<div>
-						<h3>Strawberries</h3>
-					</div>
-					<aside>
-						<span class="nav"></span>
-					</aside>
-				</li>
-				<li class='comp' class="nav" data-goto="cherries">
-					<div>
-						<h3>Cherries</h3>
-					</div>
-					<aside>
-						<span class="nav"></span>
-					</aside>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Apples</h1>
-	</nav>
-	<article class="next" id="apples">
-		<section>
-			<h2>Uses</h2>
-			<ul class="list">
-				<li>
-					<h3>Juice</h3>
-				</li>
-				<li>
-					<h3>Pastries</h3>
-				</li>
-				<li>
-					<h3>Cider</h3>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Oranges</h1>
-	</nav>
-	<article class="next" id="oranges">
-		<section>
-			<h2>Uses</h2>
-			<ul class="list">
-				<li>
-					<h3>Juice</h3>
-				</li>
-				<li>
-					<h3>Smoothies</h3>
-				</li>
-				<li>
-					<h3>Fruit Salad</h3>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Bananas</h1>
-	</nav>
-	<article class="next" id="bananas">
-		<section>
-			<h2>Uses</h2>
-			<ul class="list">
-				<li>
-					<h3>Smoothies</h3>
-				</li>
-				<li>
-					<h3>Pudding</h3>
-				</li>
-				<li>
-					<h3>Fruit Salad</h3>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Peaches</h1>
-	</nav>
-	<article class="next" id="peaches">
-		<section>
-			<h2>Uses</h2>
-			<ul class="list">
-				<li>
-					<h3>Cobbler</h3>
-				</li>
-				<li>
-					<h3>Pie</h3>
-				</li>
-				<li>
-					<h3>Smoothies</h3>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Strawberries</h1>
-	</nav>
-	<article class="next" id="strawberries">
-		<section>
-			<h2>Uses</h2>
-			<ul class="list">
-				<li>
-					<h3>Cereal</h3>
-				</li>
-				<li>
-					<h3>Smoothies</h3>
-				</li>
-				<li>
-					<h3>Fruit Salad</h3>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Cherries</h1>
-	</nav>
-	<article class="next" id="cherries">
-		<section>
-			<h2>Uses</h2>
-			<ul class="list">
-				<li>
-					<h3>Pies</h3>
-				</li>
-				<li>
-					<h3>Pastries</h3>
-				</li>
-				<li>
-					<h3>Fruit Salad</h3>
-				</li>
-			</ul>
-		</section>
-	</article>
-	<!-- End More page -->
-
 	<!-- Details Ubi page -->
 	<nav class="next">
 		<a href="#" class="button back">Back</a>
 		<h1>Living Room Ubi</h1>
+		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
 	</nav>
 	<article id="detailUbi" class='next'>
 		<section>
@@ -343,48 +160,32 @@
 				<div class="col-md-2">
 					<h3 class="text-center"><i class="fa fa-sun-o fa-1x"></i> Temperature</h3>
 					<h1 class="text-center">24.90 °C</h1>
-					<canvas class="text-center" id="myChart" width="300" height="300"></canvas>
+					<!-- <canvas class="text-center" id="myChart1"></canvas> -->
 				</div>
 				<div class="col-md-2">
 					<h3 class="text-center"><i class="fa fa-tint fa-1x"></i> Humidity</h3>
 					<h1 class="text-center">44.5 %</h1>
+					<canvas class="text-center" id="myChart2"></canvas>
 				</div>
 				<div class="col-md-2">
 					<h3 class="text-center"><i class="fa fa-lightbulb-o"></i> Light Level</h3>
 					<h1 class="text-center">107.0 Lux</h1>
+					<canvas class="text-center" id="myChart3"></canvas>
 				</div>
 				<div class="col-md-2">
 					<h3 class="text-center"><i class="fa fa-volume-up fa-1x"></i> Sound Level</h3>
 					<h1 class="text-center">67.0 db</h1>
+					<canvas class="text-center" id="myChart4"></canvas>
 				</div>
 				<div class="col-md-2">
 					<h3 class="text-center"><i class="fa fa-cloud"></i> Air Pressure</h3>
 					<h1 class="text-center">101.1 kPa</h1>
+					<canvas class="text-center" id="myChart5"></canvas>
 				</div>
 				<div class="col-md-1"></div>
 			</div>
 			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-2">
-					<!-- <canvas id="myChart" width="300" height="300"></canvas> -->
-				</div>
-				<div class="col-md-2">
-					<!-- <h3 class="text-center"><i class="fa fa-tint fa-1x"></i> Humidity</h3>
-					<h1 class="text-center">44.5 %</h1> -->
-				</div>
-				<div class="col-md-2">
-					<!-- <h3 class="text-center"><i class="fa fa-lightbulb-o"></i> Light Level</h3>
-					<h1 class="text-center">107.0 Lux</h1> -->
-				</div>
-				<div class="col-md-2">
-					<!-- <h3 class="text-center"><i class="fa fa-volume-up fa-1x"></i> Sound Level</h3>
-					<h1 class="text-center">67.0 db</h1> -->
-				</div>
-				<div class="col-md-2">
-					<!-- <h3 class="text-center"><i class="fa fa-cloud"></i> Air Pressure</h3>
-					<h1 class="text-center">101.1 kPa</h1> -->
-				</div>
-				<div class="col-md-1"></div>
+				<canvas class="text-center" id="myChart1" width="1000" height="800"></canvas>
 			</div>
 		</section>
 	</article>
@@ -435,7 +236,7 @@
 						<h3>Nest Thermostat</h3>
 					</div>
 					<aside>
-						<p><i class="fa fa-exclamation-circle fa-2x"></i> COMING SOON!</p>
+						<p>COMING SOON <i class="fa fa-exclamation"></i></p>
 					</aside>
 				</li>
 				<li class='nav transparent'>
@@ -446,7 +247,7 @@
 						<h3>Google Calendar</h3>
 					</div>
 					<aside>
-						<p><i class="fa fa-exclamation-circle fa-2x"></i> COMING SOON!</p>
+						<p>COMING SOON <i class="fa fa-exclamation"></i></p>
 					</aside>
 				</li>
 				<li class='nav transparent'>
@@ -457,7 +258,7 @@
 						<h3>WeMo</h3>
 					</div>
 					<aside>
-						<p><i class="fa fa-exclamation-circle fa-2x"></i> COMING SOON!</p>
+						<p>COMING SOON <i class="fa fa-exclamation"></i></p>
 					</aside>
 				</li>
 			</ul>
@@ -489,6 +290,19 @@
 	</article>
 	<!-- End Add new device page -->
 
+	<!-- Slide in menu -->
+	<article id='menu'>
+		<section>
+			<ul class="list">
+				<li><i class="fa fa-user fa-2x"></i> Kelvin Chan</li>
+				<li><i class="fa fa-cog fa-2x"></i> Settings</li>
+				<li><i class="fa fa-file-text-o fa-2x"></i> Terms & Policies</li>
+				<li><i class="fa fa-question fa-2x"></i> Help</li>
+				<li><i class="fa fa-power-off fa-2x"></i> Log Out</li>
+			</ul>
+		</section>
+	</article>
+	<!-- End Slide in menu -->
 
 </body>
 <!-- End body -->
@@ -496,13 +310,24 @@
 <script type="text/javascript">
 	$(function() {
 		var opts = {
-			tabs : 4,
+			tabs : 3,
 			imagePath : "../icons-ios/",
-			icons : ["devices", "triggers", "speak", "otherThanMore"],
-			labels : ["<i class='fa fa-magic'></i> Devices", "<i class='fa fa-magic'></i> Triggers", "<i class='fa fa-microphone'></i> Speak", "<i class='fa fa-bars'></i> More"],
+			icons : ["devices", "triggers", "speak"],
+			labels : ["<i class='fa fa-magic'></i> Devices", "<i class='fa fa-magic'></i> Triggers", "<i class='fa fa-microphone'></i> Speak"],
 			selected : 1
 		};
 		$.UITabbar(opts);
+
+		var jPM = $.jPanelMenu({
+			beforeOpen: function(){
+				$('#jPanelMenu-menu').removeClass('next');
+			},
+			menu: '#menu',
+			trigger: '.menu-button',
+			direction: 'right'
+		});
+		jPM.on();
+
 		var data = {
 			labels : ["January","February","March","April","May","June","July"],
 			datasets : [
@@ -522,8 +347,16 @@
 			}
 			]
 		}
-		var ctx = document.getElementById("myChart").getContext("2d");
-		var myNewChart = new Chart(ctx).Line(data);
+		var ctx1 = document.getElementById("myChart1").getContext("2d");
+		var ctx2 = document.getElementById("myChart2").getContext("2d");
+		var ctx3 = document.getElementById("myChart3").getContext("2d");
+		var ctx4 = document.getElementById("myChart4").getContext("2d");
+		var ctx5 = document.getElementById("myChart5").getContext("2d");
+		var myNewChart = new Chart(ctx1).Line(data);
+		var myNewChart = new Chart(ctx2).Bar(data);
+		var myNewChart = new Chart(ctx3).Radar(data);
+		var myNewChart = new Chart(ctx4).PolarArea(data);
+		var myNewChart = new Chart(ctx5).Doughnut(data);
 
 	});
 </script>
