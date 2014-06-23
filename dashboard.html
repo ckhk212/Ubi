@@ -6,11 +6,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="msapplication-tap-highlight" content="no">
-	<title>Demo</title>
+	<title>Ubi Demo</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<!-- Bootstramp select theme -->
+	<link rel="stylesheet" href="includes/css/bootstrap-select.min.css">
 	<!-- ChocolateChip-UI CSS -->
 	<link rel="stylesheet" href="includes/css/chui-android-3.5.5.min.css">
 	<!-- Font Awesome CSS -->
@@ -37,6 +39,9 @@
 			color: #333;
 		}
 		/* For slide in menu */
+		a.menu-button:hover{
+			color: #29addd;
+		}
 		#jPanelMenu-menu{
 			left: auto;
 			top: 0 !important;
@@ -44,6 +49,42 @@
 		}
 		.ubi-logo-small{
 			margin-right: 0.5em;
+		}
+		/* For triggers page */
+		.utterance{
+			border-bottom: solid 3px #29addd;
+			margin: 0;
+		}
+		.smartthings{
+			border-bottom: solid 3px #0e636b;
+			margin: 0;
+		}
+		/* For new trigger page */
+		.form-group > h2{
+			margin-left: 0px;
+		}
+		input.form-control{
+			background-image: none;
+			background-color: #fff;
+		}
+		/* For speak page */
+		.question{
+			margin: 1em;
+		}
+		.question > h2 {
+			border-bottom: solid 3px #29addd;
+		}
+		.respond{
+			text-align: right;
+			margin: 1em;
+		}
+		.respond > h2{
+			border-bottom: solid 3px #0e636b;
+		}
+		.circle{
+			border: 5px solid #828283;
+			border-radius: 50%;
+			padding: 1.5%;
 		}
 	</style>	
 
@@ -55,6 +96,10 @@
 	<script src="includes/js/Chart.min.js"></script>
 	<!-- jpanelmenu JS -->
 	<script src="includes/js/jpanelmenu.min.js"></script>
+	<!-- bootstrap JS -->
+	<script src="includes/js/bootstrap.min.js"></script>
+	<!-- bootstrap select JS -->
+	<script src="includes/js/bootstrap-select.min.js"></script>
 </head>
 <!-- body -->
 <body>
@@ -76,7 +121,6 @@
 					<div>
 						<h3>Living room Ubi</h3>
 						<h4>The Ubiquitous Computer</h4>
-						<!-- <p>The Ubi plugs into a power outlet and connects through your home's WiFi network to the Internet..</p> -->
 					</div>
 					<aside>
 						<span class='show-detail'></span>
@@ -87,9 +131,8 @@
 						<img title='Smart Things' src="includes/img/smartthings.jpg" height="80px">
 					</aside>
 					<div>
-						<h3>Lving room Smart Things</h3>
+						<h3>Living room Smart Things</h3>
 						<h4>Easy & Affordable Smart Home Automation</h4>
-						<!-- <p>SmartThings is the easiest way to create a smart home</p> -->
 					</div>
 					<aside>
 						<span class='show-detail'></span>
@@ -97,12 +140,11 @@
 				</li>
 				<li class="comp" data-goto="addNewDevices">
 					<aside>
-						<i class="add-icon fa fa-plus fa-5x"></i>
+						<i class="add-icon fa fa-plus-square-o fa-5x"></i>
 					</aside>
 					<div>
 						<h3>Add a New Device</h3>
 						<h4>Add a new device to begin your home automation jouney</h4>
-						<p></p>
 					</div>
 					<aside>
 						<span class="nav"></span>
@@ -123,11 +165,41 @@
 	<article class='next'>
 		<section>
 			<ul class="list">
-				<li>Picture 1</li>
-				<li>Picture 2</li>
-				<li>Picture 3</li>
-				<li>Picture 4</li>
-				<li>Picture 5</li>
+				<li data-goto="">
+					<aside class="">
+						<h2 class="utterance">Utterance</h2>
+						<h4>Living room Ubi</h4>
+					</aside>
+					<div>
+						<h3><i class="fa fa-square"></i> Good morning</h3>
+						<h3><i class="fa fa-square-o "></i> Good morning Kelvin</h3>
+					</div>
+				</li>
+				<li data-goto="">
+					<aside class="">
+						<h2 class="utterance">Utterance</h2>
+						<h4>Living room Ubi</h4>
+					</aside>
+					<div>
+						<h3><i class="fa fa-square"></i> What are the today's headlines?</h3>
+						<h3><i class="fa fa-square-o "></i> Today headlines are...</h3>
+					</div>
+				</li>
+				<li data-goto="">
+					<aside class="triggerTypes">
+						<h2 class="smartthings">SmartThings</h2>
+						<h4>Living room Smart Things</h4>
+					</aside>
+					<div>
+						<h3><i class="fa fa-square"></i> Turn on the light?</h3>
+						<h3><i class="fa fa-square-o "></i> Okay Kelvin. All your lights are on</h3>
+					</div>
+				</li>
+				<li data-goto="addNewTrigger">
+					<aside>
+						<h3><i class="fa fa-plus-square-o"></i> Add a new trigger</h3>
+					</aside>
+				</li>
 			</ul>
 		</section>
 	</article>
@@ -142,221 +214,312 @@
 	</nav>
 	<article class='next'>
 		<section>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="question">
+						<h2>Ubi</h2>
+						<h3>Good morning Ubi</h3>	
+					</div>
+					<div class="respond">
+						<h2>You</h2>
+						<h3>Good morning Kelvin</h3>
+					</div>
+					<div class="question">
+						<h2>Ubi</h2>
+						<h3>What the room's temperature</h3>	
+					</div>
+					<div class="respond">
+						<h2>You</h2>
+						<h3>The current temperature in Living Room Ubi is 26°C</h3>
+					</div>
+					<p class="text-center">
+						<a href="#"><i class="circle fa fa-microphone fa-5x"></i></a>
+					</p>
+				</div>
+			</div>
 		</section>
 	</article>
 	<!-- End Speak page -->
 
 	<!-- Details Ubi page -->
 	<nav class="next">
-		<a href="#" class="button back">Back</a>
 		<h1>Living Room Ubi</h1>
 		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
 		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
 	</nav>
 	<article id="detailUbi" class='next'>
 		<section>
-			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-2">
-					<h3 class="text-center"><i class="fa fa-sun-o fa-1x"></i> Temperature</h3>
-					<h1 class="text-center">24.90 °C</h1>
-					<!-- <canvas class="text-center" id="myChart1"></canvas> -->
-				</div>
-				<div class="col-md-2">
-					<h3 class="text-center"><i class="fa fa-tint fa-1x"></i> Humidity</h3>
-					<h1 class="text-center">44.5 %</h1>
-					<canvas class="text-center" id="myChart2"></canvas>
-				</div>
-				<div class="col-md-2">
-					<h3 class="text-center"><i class="fa fa-lightbulb-o"></i> Light Level</h3>
-					<h1 class="text-center">107.0 Lux</h1>
-					<canvas class="text-center" id="myChart3"></canvas>
-				</div>
-				<div class="col-md-2">
-					<h3 class="text-center"><i class="fa fa-volume-up fa-1x"></i> Sound Level</h3>
-					<h1 class="text-center">67.0 db</h1>
-					<canvas class="text-center" id="myChart4"></canvas>
-				</div>
-				<div class="col-md-2">
-					<h3 class="text-center"><i class="fa fa-cloud"></i> Air Pressure</h3>
-					<h1 class="text-center">101.1 kPa</h1>
-					<canvas class="text-center" id="myChart5"></canvas>
-				</div>
-				<div class="col-md-1"></div>
-			</div>
-			<div class="row">
-				<canvas class="text-center" id="myChart1" width="1000" height="800"></canvas>
-			</div>
-		</section>
-	</article>
-	<!-- End Details Ubi page -->
-
-	<!-- Add new smart things page -->
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Smart Things</h1>
-	</nav>
-	<article id="newSmartThings" class='next'>
-		<section>
-			<img src="includes/img/smartthings-setup.png">
-		</section>
-	</article>
-	<!-- End Add new device page -->
-
-	<!-- Add new device page -->
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Add a New Device</h1>
-	</nav>
-	<article id="addNewDevices" class='next'>
-		<section>
-			<h2>New Device</h2>
 			<ul class='list'>
-				<li class='nav' data-goto="newUbi">
-					<aside>
-						<img title='Ubi' src='includes/img/ubi.jpg' height='80px'>
-					</aside>
-					<div>
-						<h3>Ubi</h3>
+				<li>
+					<div class="row">
+						<div class="col-md-2">
+							<h3 class="text-center"><i class="fa fa-sun-o fa-4x"></i><br> Temperature</h3>
+							<h1 class="text-center">26°C</h1>
+						</div>
+						<div class="col-md-10">
+							<canvas class="text-center" id="myChart1"></canvas>
+						</div>
 					</div>
 				</li>
-				<li class='nav' data-goto="newSmartThings">
-					<aside>
-						<img title='Smart Things' src='includes/img/smartthings.jpg' height='80px'>
-					</aside>
-					<div>
-						<h3>Smart Things</h3>
+				<li>
+					<div class="row">
+						<div class="col-md-2">
+							<h3 class="text-center"><i class="fa fa-tint fa-4x"></i><br> Humidity</h3>
+							<h1 class="text-center">44.5%</h1>
+						</div>
+						<div class="col-md-10">
+							<canvas class="text-center" id="myChart2"></canvas>
+						</div>
 					</div>
 				</li>
-				<li class='nav transparent'>
-					<aside>
-						<img title='Nest Thermostat' src='includes/img/nest.jpg' height='80px'>
-					</aside>
-					<div>
-						<h3>Nest Thermostat</h3>
+				<li>
+					<div class="row">
+						<div class="col-md-2">
+							<h3 class="text-center"><i class="fa fa-lightbulb-o fa-4x"></i><br> Light Level</h3>
+							<h1 class="text-center">107.0Lux</h1>
+						</div>
+						<div class="col-md-10">
+							<canvas class="text-center" id="myChart3"></canvas>
+						</div>
 					</div>
-					<aside>
-						<p>COMING SOON <i class="fa fa-exclamation"></i></p>
-					</aside>
 				</li>
-				<li class='nav transparent'>
-					<aside>
-						<img title='Google Calendar' src='includes/img/gcal.jpg' height='80px'>
-					</aside>
-					<div>
-						<h3>Google Calendar</h3>
+				<li>
+					<div class="row">
+						<div class="col-md-2">
+							<h3 class="text-center"><i class="fa fa-volume-up fa-4x"></i><br> Sound Level</h3>
+							<h1 class="text-center">67.0db</h1>
+						</div>
+						<div class="col-md-10">
+							<canvas class="text-center" id="myChart4"></canvas>
+						</div>
 					</div>
-					<aside>
-						<p>COMING SOON <i class="fa fa-exclamation"></i></p>
-					</aside>
 				</li>
-				<li class='nav transparent'>
-					<aside>
-						<img title='WeMo' src='includes/img/wemo.jpg' height='80px'>
-					</aside>
-					<div>
-						<h3>WeMo</h3>
+				<li>
+					<div class="row">
+						<div class="col-md-2">
+							<h3 class="text-center"><i class="fa fa-cloud fa-4x"></i><br> Air Pressure</h3>
+							<h1 class="text-center">101.1kPa</h1>
+						</div>
+						<div class="col-md-10">
+							<canvas class="text-center" id="myChart5"></canvas>
+						</div>
 					</div>
-					<aside>
-						<p>COMING SOON <i class="fa fa-exclamation"></i></p>
-					</aside>
 				</li>
-			</ul>
-		</section>
-	</article>
-	<!-- End Add new device page -->
+			</section>
+		</article>
+		<!-- End Details Ubi page -->
 
-	<!-- Add new Ubi page -->
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Ubi</h1>
-	</nav>
-	<article id="newUbi" class='next'>
-		<section>
-			<img src="includes/img/ubi-setup.png">
-		</section>
-	</article>
-	<!-- End Add new device page -->
+		<!-- Add new device page -->
+		<nav class="next">
+			<i class="fa fa-laptop fa-2x"></i> 
+			<h1>New Device</h1>
+			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+		</nav>
+		<article id="addNewDevices" class='next'>
+			<section>
+				<h2>New Device</h2>
+				<ul class='list'>
+					<li class='nav' data-goto="newUbi">
+						<aside>
+							<img title='Ubi' src='includes/img/ubi.jpg' height='80px'>
+						</aside>
+						<div>
+							<h3>Ubi</h3>
+							<h4>The Ubiquitous Computer</h4>
+						</div>
+					</li>
+					<li class='nav' data-goto="newSmartThings">
+						<aside>
+							<img title='Smart Things' src='includes/img/smartthings.jpg' height='80px'>
+						</aside>
+						<div>
+							<h3>Smart Things</h3>
+							<h4>Easy & Affordable Smart Home Automation</h4>
+						</div>
+					</li>
+					<li class='nav transparent'>
+						<aside>
+							<img title='Nest Thermostat' src='includes/img/nest.jpg' height='80px'>
+						</aside>
+						<div>
+							<h3>Nest Thermostat</h3>
+							<h4>COMING SOON <i class="fa fa-exclamation"></i></h4>
+						</div>
+					</li>
+					<li class='nav transparent'>
+						<aside>
+							<img title='Google Calendar' src='includes/img/gcal.jpg' height='80px'>
+						</aside>
+						<div>
+							<h3>Google Calendar</h3>
+							<h4>COMING SOON <i class="fa fa-exclamation"></i></h4>
+						</div>
+					</li>
+					<li class='nav transparent'>
+						<aside>
+							<img title='WeMo' src='includes/img/wemo.jpg' height='80px'>
+						</aside>
+						<div>
+							<h3>WeMo</h3>
+							<h4>COMING SOON <i class="fa fa-exclamation"></i></h4>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</article>
+		<!-- End Add new device page -->
 
-	<!-- Add new smart things page -->
-	<nav class="next">
-		<a href="#" class="button back">Back</a>
-		<h1>Smart Things</h1>
-	</nav>
-	<article id="newSmartThings" class='next'>
-		<section>
-			<img src="includes/img/smartthings-setup.png">
-		</section>
-	</article>
-	<!-- End Add new device page -->
+		<!-- Add new Ubi page -->
+		<nav class="next">
+			<h1>Ubi</h1>
+			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+		</nav>
+		<article id="newUbi" class='next'>
+			<section>
+				<img src="includes/img/ubi-setup.png">
+			</section>
+		</article>
+		<!-- End Add new Ubi page -->
 
-	<!-- Slide in menu -->
-	<article id='menu'>
-		<section>
-			<ul class="list">
-				<li><i class="fa fa-user fa-2x"></i> Kelvin Chan</li>
-				<li><i class="fa fa-cog fa-2x"></i> Settings</li>
-				<li><i class="fa fa-file-text-o fa-2x"></i> Terms & Policies</li>
-				<li><i class="fa fa-question fa-2x"></i> Help</li>
-				<li><i class="fa fa-power-off fa-2x"></i> Log Out</li>
-			</ul>
-		</section>
-	</article>
-	<!-- End Slide in menu -->
+		<!-- Add new smart things page -->
+		<nav class="next">
+			<h1>Smart Things</h1>
+			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+		</nav>
+		<article id="newSmartThings" class='next'>
+			<section>
+				<img src="includes/img/smartthings-setup.png">
+			</section>
+		</article>
+		<!-- End Add new smart things page -->
 
-</body>
-<!-- End body -->
+		<!-- Add new trigger page -->
+		<nav class="next">
+			<i class="fa fa-magic fa-2x"></i>
+			<h1>New Trigger</h1>
+			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
+			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+		</nav>
+		<article id="addNewTrigger">
+			<section>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<form role="form" action="" method="post">
+							<div class="form-group">
+								<h2>Choose Target Device <span>Step 1 of 4</span></h2>
+								<select class="selectpicker" id='selectDevice'>
+									<option>Living Room Ubi</option>
+									<option>Living Room Smart Things</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<h2>Select Command Type <span>Step 2 of 4</span></h2>
+								<select class="selectpicker">
+									<option>Utterance</option>
+									<option>Smart Things command</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<h2>Voice Command <span>Step 3 of 4</span></h2>
+								<input type="text" class="form-control" placeholder="eg. Good morning">
+							</div>
+							<div class="form-group">
+								<h2>Voice Announecement <span>Step 4 of 4</span></h2>
+								<textarea class="form-control" rows="3" placeholder="eg. Good morning Master"></textarea>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-default">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+		</article>
+		<!-- End Add new trigger page -->
 
-<script type="text/javascript">
-	$(function() {
-		var opts = {
-			tabs : 3,
-			imagePath : "../icons-ios/",
-			icons : ["devices", "triggers", "speak"],
-			labels : ["<i class='fa fa-magic'></i> Devices", "<i class='fa fa-magic'></i> Triggers", "<i class='fa fa-microphone'></i> Speak"],
-			selected : 1
-		};
-		$.UITabbar(opts);
+		<!-- Slide in menu -->
+		<article id='menu'>
+			<section>
+				<ul class="list">
+					<li data-goto=""><i class="fa fa-user fa-2x"></i> Kelvin Chan</li>
+					<li data-goto=""><i class="fa fa-cogs fa-2x"></i> Settings</li>
+					<li data-goto=""><i class="fa fa-file-text-o fa-2x"></i> Terms & Policies</li>
+					<li data-goto=""><i class="fa fa-question fa-2x"></i> Help</li>
+					<li data-goto=""><i class="fa fa-power-off fa-2x"></i> Log Out</li>
+				</ul>
+			</section>
+		</article>
+		<!-- End Slide in menu -->
 
-		var jPM = $.jPanelMenu({
-			beforeOpen: function(){
-				$('#jPanelMenu-menu').removeClass('next');
-			},
-			menu: '#menu',
-			trigger: '.menu-button',
-			direction: 'right'
-		});
-		jPM.on();
+	</body>
+	<!-- End body -->
 
-		var data = {
-			labels : ["January","February","March","April","May","June","July"],
-			datasets : [
-			{
-				fillColor : "rgba(220,220,220,0.5)",
-				strokeColor : "rgba(220,220,220,1)",
-				pointColor : "rgba(220,220,220,1)",
-				pointStrokeColor : "#fff",
-				data : [65,59,90,81,56,55,40]
-			},
-			{
-				fillColor : "rgba(151,187,205,0.5)",
-				strokeColor : "rgba(151,187,205,1)",
-				pointColor : "rgba(151,187,205,1)",
-				pointStrokeColor : "#fff",
-				data : [28,48,40,19,96,27,100]
+	<script type="text/javascript">
+		$(function() {
+			var opts = {
+				tabs : 3,
+				imagePath : "../icons-ios/",
+				icons : ["devices", "triggers", "speak"],
+				labels : ["<i class='fa fa-laptop'></i> Devices", "<i class='fa fa-magic'></i> Triggers", "<i class='fa fa-microphone'></i> Speak"],
+				selected : 1
+			};
+			$.UITabbar(opts);
+
+			var jPM = $.jPanelMenu({
+				beforeOpen: function(){
+					$('#jPanelMenu-menu').removeClass('next');
+				},
+				menu: '#menu',
+				trigger: '.menu-button',
+				direction: 'right'
+			});
+			jPM.on();
+
+			var data = {
+				labels : ["January","February","March","April","May","June","July"],
+				datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					data : [65,59,90,81,56,55,40]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					data : [28,48,40,19,96,27,100]
+				}
+				]
 			}
-			]
-		}
-		var ctx1 = document.getElementById("myChart1").getContext("2d");
-		var ctx2 = document.getElementById("myChart2").getContext("2d");
-		var ctx3 = document.getElementById("myChart3").getContext("2d");
-		var ctx4 = document.getElementById("myChart4").getContext("2d");
-		var ctx5 = document.getElementById("myChart5").getContext("2d");
-		var myNewChart = new Chart(ctx1).Line(data);
-		var myNewChart = new Chart(ctx2).Bar(data);
-		var myNewChart = new Chart(ctx3).Radar(data);
-		var myNewChart = new Chart(ctx4).PolarArea(data);
-		var myNewChart = new Chart(ctx5).Doughnut(data);
 
-	});
+			var ctx = document.getElementById("myChart1").getContext("2d");
+			var ctx2 = document.getElementById("myChart2").getContext("2d");
+			var ctx3 = document.getElementById("myChart3").getContext("2d");
+			var ctx4 = document.getElementById("myChart4").getContext("2d");
+			var ctx5 = document.getElementById("myChart5").getContext("2d");
+
+			var width = $('canvas').parent().width();
+			$('canvas').attr("width",width);
+			new Chart(ctx).Line(data);
+			new Chart(ctx2).Line(data);
+			new Chart(ctx3).Line(data);
+			new Chart(ctx4).Line(data);
+			new Chart(ctx5).Line(data);
+			window.onresize = function(event){
+				var width = $('canvas').parent().width();
+				$('canvas').attr("width",width);
+				new Chart(ctx).Line(data);
+				new Chart(ctx2).Line(data);
+				new Chart(ctx3).Line(data);
+				new Chart(ctx4).Line(data);
+				new Chart(ctx5).Line(data);
+			};
+			$('.selectpicker').selectpicker();
+		});
 </script>
