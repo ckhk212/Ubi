@@ -14,42 +14,40 @@
 	<!-- Bootstramp select theme -->
 	<link rel="stylesheet" href="includes/css/bootstrap-select.min.css">
 	<!-- ChocolateChip-UI CSS -->
-	<link rel="stylesheet" href="includes/css/chui-android-3.5.5.min.css">
+	<link rel="stylesheet" href="includes/css/chui-android-3.5.5.css">
 	<!-- Font Awesome CSS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 	<!-- Custom CSS -->
 	<style type="text/css">
-		.tabbar  > a.button{
-			opacity: 0.5;
-		}
 		.tabbar > .button > .icon {
 			display: none;
 		}
-		.popover{
-			display: block;
+		/* selected menu */
+		.tabbar>.button.selected{
+			color: #fff !important;
 		}
+		/* non-selected menu */
+		.tabbar>.button{
+			opacity: 0.5;
+		}
+		/* font-awesome icon on the list */
 		i.add-icon{
 			margin-left: 0.1em;
 			width: 80px; 
 		}
+		/* for the coming soon devices */
 		.transparent{
 			opacity: 0.5;
-		}
-		nav a{
-			color: #333;
 		}
 		/* For slide in menu */
 		a.menu-button:hover{
 			color: #29addd;
 		}
-		#jPanelMenu-menu{
-			left: auto;
-			top: 0 !important;
-			padding-top: 0px !important;
-		}
-		.ubi-logo-small{
-			margin-right: 0.5em;
-		}
+		/*.ubi-logo-small{
+			padding-right: 1%;
+			padding-bottom: 10%;
+
+		}*/
 		/* For triggers page */
 		.utterance{
 			border-bottom: solid 3px #29addd;
@@ -81,11 +79,6 @@
 		.respond > h2{
 			border-bottom: solid 3px #0e636b;
 		}
-		.circle{
-			border: 5px solid #828283;
-			border-radius: 50%;
-			padding: 1.5%;
-		}
 	</style>	
 
 	<!-- Latest JQuery compiled and minified JavaScript -->
@@ -94,24 +87,19 @@
 	<script src="includes/js/chui-3.5.5.min.js"></script>
 	<!-- Chart JS -->
 	<script src="includes/js/Chart.min.js"></script>
-	<!-- jpanelmenu JS -->
-	<script src="includes/js/jpanelmenu.min.js"></script>
 	<!-- bootstrap JS -->
 	<script src="includes/js/bootstrap.min.js"></script>
-	<!-- bootstrap select JS -->
-	<script src="includes/js/bootstrap-select.min.js"></script>
+	
 </head>
 <!-- body -->
 <body>
 	<!-- Devices page -->
 	<nav>
-		<i class="fa fa-laptop fa-2x"></i>
-		<h1>Devices</h1>
-		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+		<i class="fa fa-laptop fa-3x"></i>
+		<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 	</nav>
 
-	<article id="main" class="current">
+	<article id="main">
 		<section>
 			<ul class='list'>
 				<li class='comp' data-goto="detailUbi">
@@ -156,13 +144,11 @@
 	<!-- End Devices page -->
 
 	<!-- Triggers page -->
-	<nav class='next'>
-		<i class="fa fa-magic fa-2x"></i>
-		<h1>Triggers</h1>
-		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+	<nav>
+		<i class="fa fa-magic fa-3x"></i>
+		<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 	</nav>
-	<article class='next'>
+	<article>
 		<section>
 			<ul class="list">
 				<li data-goto="">
@@ -206,11 +192,9 @@
 	<!-- End Triggers page -->
 
 	<!-- Speak page -->
-	<nav class='next'>
-		<i class="fa fa-microphone fa-2x"></i>
-		<h1>Speak</h1>
-		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+	<nav class='current'>
+		<i class="fa fa-microphone fa-3x"></i>
+		<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 	</nav>
 	<article class='next'>
 		<section>
@@ -232,9 +216,9 @@
 						<h2>You</h2>
 						<h3>The current temperature in Living Room Ubi is 26°C</h3>
 					</div>
-					<p class="text-center">
-						<a href="#"><i class="circle fa fa-microphone fa-5x"></i></a>
-					</p>
+					<!-- <p class="text-center">
+						<i class="fa fa-microphone fa-5x"></i>
+					</p> -->
 				</div>
 			</div>
 		</section>
@@ -244,8 +228,7 @@
 	<!-- Details Ubi page -->
 	<nav class="next">
 		<h1>Living Room Ubi</h1>
-		<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-		<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+		<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 	</nav>
 	<article id="detailUbi" class='next'>
 		<section>
@@ -311,10 +294,8 @@
 
 		<!-- Add new device page -->
 		<nav class="next">
-			<i class="fa fa-laptop fa-2x"></i> 
-			<h1>New Device</h1>
-			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+			<i class="fa fa-laptop fa-3x"></i>
+			<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 		</nav>
 		<article id="addNewDevices" class='next'>
 			<section>
@@ -373,8 +354,7 @@
 		<!-- Add new Ubi page -->
 		<nav class="next">
 			<h1>Ubi</h1>
-			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+			<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 		</nav>
 		<article id="newUbi" class='next'>
 			<section>
@@ -386,8 +366,7 @@
 		<!-- Add new smart things page -->
 		<nav class="next">
 			<h1>Smart Things</h1>
-			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+			<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 		</nav>
 		<article id="newSmartThings" class='next'>
 			<section>
@@ -399,9 +378,7 @@
 		<!-- Add new trigger page -->
 		<nav class="next">
 			<i class="fa fa-magic fa-2x"></i>
-			<h1>New Trigger</h1>
-			<img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png">
-			<a class="menu-button" href="#"><i class="fa fa-bars fa-2x"></i></a>
+			<!-- <img class='ubi-logo-small' title='ubi-logo' src="includes/img/ubi-logo-small.png"> -->
 		</nav>
 		<article id="addNewTrigger">
 			<section>
@@ -444,7 +421,7 @@
 		<article id='menu'>
 			<section>
 				<ul class="list">
-					<li data-goto=""><i class="fa fa-user fa-2x"></i> Kelvin Chan</li>
+					<li data-goto=""></li>
 					<li data-goto=""><i class="fa fa-cogs fa-2x"></i> Settings</li>
 					<li data-goto=""><i class="fa fa-file-text-o fa-2x"></i> Terms & Policies</li>
 					<li data-goto=""><i class="fa fa-question fa-2x"></i> Help</li>
@@ -459,51 +436,55 @@
 
 	<script type="text/javascript">
 		$(function() {
-			var opts = {
-				tabs : 3,
-				imagePath : "../icons-ios/",
-				icons : ["devices", "triggers", "speak"],
-				labels : ["<i class='fa fa-laptop'></i> Devices", "<i class='fa fa-magic'></i> Triggers", "<i class='fa fa-microphone'></i> Speak"],
-				selected : 1
-			};
-			$.UITabbar(opts);
+			$('body').removeClass('slide-out-app');
+		// Create an empty slide out menu:
+		$.UISlideout();
+		// Populate the slide out:
+		$.UISlideout.populate([{user:'<i class="fa fa-user fa-2x"></i> Kelvin Chan'},{settings:'<i class="fa fa-cogs fa-2x"></i> Settings</li>'},{terms:'<i class="fa fa-file-text-o fa-2x"></i> Terms & Policies</li>'},{help:'<i class="fa fa-question fa-2x"></i> Help</li>'},{logout:'<i class="fa fa-power-off fa-2x"></i> Log Out</li>'}]);
 
-			var jPM = $.jPanelMenu({
-				beforeOpen: function(){
-					$('#jPanelMenu-menu').removeClass('next');
-				},
-				menu: '#menu',
-				trigger: '.menu-button',
-				direction: 'right'
-			});
-			jPM.on();
+		var opts = {
+			tabs : 3,
+			imagePath : "../icons-ios/",
+			icons : ["devices", "triggers", "speak"],
+			labels : ["Devices", "Triggers", "Speak"],
+			selected : 1
+		};
+		$.UITabbar(opts);
 
-			var data = {
-				labels : ["January","February","March","April","May","June","July"],
-				datasets : [
-				{
-					fillColor : "rgba(220,220,220,0.5)",
-					strokeColor : "rgba(220,220,220,1)",
-					pointColor : "rgba(220,220,220,1)",
-					pointStrokeColor : "#fff",
-					data : [65,59,90,81,56,55,40]
-				},
-				{
-					fillColor : "rgba(151,187,205,0.5)",
-					strokeColor : "rgba(151,187,205,1)",
-					pointColor : "rgba(151,187,205,1)",
-					pointStrokeColor : "#fff",
-					data : [28,48,40,19,96,27,100]
-				}
-				]
+		var data = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,1)",
+				pointColor : "rgba(220,220,220,1)",
+				pointStrokeColor : "#fff",
+				data : [65,59,90,81,56,55,40]
+			},
+			{
+				fillColor : "rgba(151,187,205,0.5)",
+				strokeColor : "rgba(151,187,205,1)",
+				pointColor : "rgba(151,187,205,1)",
+				pointStrokeColor : "#fff",
+				data : [28,48,40,19,96,27,100]
 			}
+			]
+		}
 
-			var ctx = document.getElementById("myChart1").getContext("2d");
-			var ctx2 = document.getElementById("myChart2").getContext("2d");
-			var ctx3 = document.getElementById("myChart3").getContext("2d");
-			var ctx4 = document.getElementById("myChart4").getContext("2d");
-			var ctx5 = document.getElementById("myChart5").getContext("2d");
+		var ctx = document.getElementById("myChart1").getContext("2d");
+		var ctx2 = document.getElementById("myChart2").getContext("2d");
+		var ctx3 = document.getElementById("myChart3").getContext("2d");
+		var ctx4 = document.getElementById("myChart4").getContext("2d");
+		var ctx5 = document.getElementById("myChart5").getContext("2d");
 
+		var width = $('canvas').parent().width();
+		$('canvas').attr("width",width);
+		new Chart(ctx).Line(data);
+		new Chart(ctx2).Line(data);
+		new Chart(ctx3).Line(data);
+		new Chart(ctx4).Line(data);
+		new Chart(ctx5).Line(data);
+		window.onresize = function(event){
 			var width = $('canvas').parent().width();
 			$('canvas').attr("width",width);
 			new Chart(ctx).Line(data);
@@ -511,15 +492,6 @@
 			new Chart(ctx3).Line(data);
 			new Chart(ctx4).Line(data);
 			new Chart(ctx5).Line(data);
-			window.onresize = function(event){
-				var width = $('canvas').parent().width();
-				$('canvas').attr("width",width);
-				new Chart(ctx).Line(data);
-				new Chart(ctx2).Line(data);
-				new Chart(ctx3).Line(data);
-				new Chart(ctx4).Line(data);
-				new Chart(ctx5).Line(data);
-			};
-			$('.selectpicker').selectpicker();
-		});
+		};
+	});
 </script>
